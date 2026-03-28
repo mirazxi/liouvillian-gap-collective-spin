@@ -47,13 +47,13 @@ def strong_drive_asymptote_k1(gamma: float = 1.0) -> float:
 
 gamma = 1.0
 delta = 0.18
-omega_vals = np.linspace(0.0, 2.0, 801)
+omega_vals = np.linspace(0.005, 2.0, 801)
 
 exact_cubic = np.array([dipolar_gap_exact_from_cubic(om, delta, gamma) for om in omega_vals])
 numeric_block = np.array([sector_gap_from_block(1, om, delta, gamma) for om in omega_vals])
 strong_asym = np.full_like(omega_vals, strong_drive_asymptote_k1(gamma))
 
-omega_weak = np.linspace(0.0, 0.35, 200)
+omega_weak = np.linspace(0.005, 0.35, 200)
 weak_approx = np.array([weak_drive_approx_k1(om, delta, gamma) for om in omega_weak])
 
 df = pd.DataFrame({
