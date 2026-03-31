@@ -2,18 +2,6 @@
 
 This folder contains the Python scripts used to generate the main numerical checks and figures for the paper.
 
-## Environment
-
-Tested with Python 3.10+ on Ubuntu.
-
-Create a virtual environment and install dependencies:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
 ## Scripts
 
 ### 1. `sector_scans_and_plots.py`
@@ -37,12 +25,51 @@ Usage:
 python3 full_vs_block_validation.py
 ```
 
-## Output
+# Low-rank Liouvillian-gap selection: code and datasets
 
-All outputs are written to an `outputs/` subfolder inside this directory.
+This repository contains the Python scripts, datasets, and figure-generation code used for the paper
 
-## Notes
+**“Low-rank structure and Liouvillian-gap selection in a coherently driven collective spin under collective dephasing.”**
 
-- All scripts assume dimensionless units with `gamma = 1` unless explicitly changed.
-- The block construction follows the rank-`k` tridiagonal Liouvillian blocks used in the manuscript.
-- The full Liouvillian validation uses the symmetric spin sector of dimension `N+1`.
+The project studies the Liouvillian spectral gap of a driven collective-dephasing model, with emphasis on:
+
+- exact irreducible-tensor block decomposition,
+- low-rank sector selection,
+- dipolar–quadrupolar crossover structure,
+- higher-rank exclusion via scalar reduction,
+- and computer-assisted box checks over the scanned parameter region.
+
+---
+
+## What this repository contains
+
+The repository is organized around four main tasks:
+
+1. **Sector scans and figure generation**  
+   Numerical scans of reduced Liouvillian blocks used to generate the main sector-selection maps, line cuts, and benchmark datasets.
+
+2. **Validation of the exact block decomposition**  
+   Direct comparison between the full symmetric-space Liouvillian and the reduced rank-resolved block formulation for small system sizes.
+
+3. **Finite-range higher-rank certification**  
+   Scripts and datasets used for explicit higher-rank exclusion checks over finite ranges of sector rank.
+
+4. **Large-\(k\) certification chunks**  
+   Scripts and CSV outputs for the certified large-rank chunk computations used in the manuscript.
+
+---
+
+## Environment
+
+Tested with:
+
+- Python 3.10+
+- Ubuntu / WSL
+- standard scientific Python stack
+
+Create a virtual environment and install dependencies:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
