@@ -73,3 +73,12 @@ Create a virtual environment and install dependencies:
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+## Optional thread settings for reproducible CPU usage
+
+For more stable CPU usage on WSL / Linux, you may run:
+
+```bash
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export MKL_NUM_THREADS=1
